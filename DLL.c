@@ -51,7 +51,23 @@ void insertAtpos(int pos, int data, int n){
         findPos->prev->next = newNode;
     findPos->prev = newNode;
 }
-
+void findMid(){
+    if(head == NULL){
+        printf("List is Empty");
+    }
+    struct node *fast;
+    struct node *slow;
+    slow = head;
+    fast = head;
+    while(fast != NULL && fast->next != NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    printf("mid node %d \t ",slow->info);
+}
+void sort(){
+    
+}
 void displayF(){
     struct node *displayLL;
     displayLL = head;
@@ -74,6 +90,7 @@ int main(){
     int pos,data;
     scanf("%d%d",&pos,&data);
     insertAtpos(pos,data,n);
+    findMid();
     displayF();
 
     return 0 ;
